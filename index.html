@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Awesome To-Do List App</title>
     <style>
-        /* CSS Styling - ప్రాజెక్ట్ అందంగా కనిపించడానికి */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea, #764ba2);
@@ -101,14 +100,14 @@
     <div class="container">
         <h2>To-Do List App</h2>
         <div class="input-section">
-            <input type="text" id="taskInput" placeholder="పని పేరు ఇక్కడ రాయండి...">
+            <!-- ఇక్కడ తెలుగు టెక్స్ట్ బదులు ఇంగ్లీష్ మార్చబడింది -->
+            <input type="text" id="taskInput" placeholder="Add a new task...">
             <button id="addBtn">Add</button>
         </div>
         <ul id="taskList"></ul>
     </div>
 
     <script>
-        // JavaScript Logic - యాప్ పని చేయడానికి
         const taskInput = document.getElementById('taskInput');
         const addBtn = document.getElementById('addBtn');
         const taskList = document.getElementById('taskList');
@@ -117,22 +116,17 @@
             const taskText = taskInput.value.trim();
             
             if (taskText === "") {
-                alert("దయచేసి ఏదైనా రాయండి!");
+                alert("Please enter a task!");
                 return;
             }
 
-            // కొత్త లిస్ట్ ఐటమ్ క్రియేట్ చేయడం
             const li = document.createElement('li');
             li.innerHTML = `<span>${taskText}</span> <button onclick="this.parentElement.remove()">Delete</button>`;
 
-            // లిస్ట్‌కి యాడ్ చేయడం
             taskList.appendChild(li);
-
-            // ఇన్పుట్ బాక్స్ క్లియర్ చేయడం
             taskInput.value = "";
         });
 
-        // ఎంటర్ బటన్ నొక్కితే కూడా వర్క్ అయ్యేలా చేయడం
         taskInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 addBtn.click();
