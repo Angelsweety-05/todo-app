@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Todo App</title>
+</head>
+<body>
+    <h2>నా టు-డు లిస్ట్</h2>
+    <input type="text" id="task" placeholder="పని రాయండి...">
+    <button onclick="add()">యాడ్ చేయి</button>
+    <ul id="list"></ul>
+
+    <script>
+        function add() {
+            let t = document.getElementById('task').value;
+            if(t === "") return;
+            let li = document.createElement('li');
+            li.textContent = t;
+            document.getElementById('list').appendChild(li);
+            document.getElementById('task').value = "";
+        }
+    </script>
+</body>
+</html>
